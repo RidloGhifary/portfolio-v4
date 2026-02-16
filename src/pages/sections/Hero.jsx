@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="h-24 md:h-32 w-full flex-shrink-0" />
 
       {/* 2. BACKGROUND & SIDE TEXT */}
-      <div className="absolute top-[5%] right-[-5%] w-[40vw] h-[40vw] bg-gray-400/30 dark:bg-blue-950/15 rounded-full blur-[120px] pointer-events-none z-0" />
+      {/* <div className="absolute top-[5%] right-[-5%] w-[40vw] h-[40vw] bg-gray-400/30 dark:bg-blue-950/15 rounded-full blur-[120px] pointer-events-none z-0" /> */}
       <div className="absolute left-[-5vw] top-1/2 -translate-y-1/2 hidden xl:block pointer-events-none">
         <span className="text-[15vw] font-black text-gray-400/15  uppercase rotate-90 block tracking-tighter">
           RAIHAN
