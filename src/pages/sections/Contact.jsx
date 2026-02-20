@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { Copy, Check } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,6 +64,18 @@ const Contact = () => {
       }, 5000);
     }
   };
+  const [copiedType, setCopiedType] = useState(null);
+
+  // Fungsi dinamis untuk menyalin teks
+  const handleCopy = (text, type) => {
+    navigator.clipboard.writeText(text);
+    setCopiedType(type);
+
+    // Kembalikan ke teks semula setelah 2 detik
+    setTimeout(() => {
+      setCopiedType(null);
+    }, 2000);
+  };
 
   return (
     <motion.section
@@ -119,38 +132,74 @@ const Contact = () => {
                   Pamekasan, Madura
                 </h3>
                 <p className="font-mono text-[11px] text-text-secondary uppercase tracking-widest mt-1">
-                  Jawa Timur, Indonesia (IDN)
+                  EAST JAVA, Indonesia (IDN)
                 </p>
               </div>
 
               {/* Detail Kontak Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-border-primary">
-                <div className="group cursor-pointer">
-                  <span className="font-mono text-[9px] text-text-secondary uppercase tracking-[0.2em] mb-2 block group-hover:text-text-primary transition-colors">
-                    Electronic_Mail
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 pt-8 md:pt-10 border-t border-border-primary/50 w-full">
+                {/* --- BLOK EMAIL --- */}
+                <div
+                  onClick={() => handleCopy("raihan.webml@gmail.com", "email")}
+                  className="group cursor-pointer flex flex-col items-start w-fit"
+                >
+                  {/* Label */}
+                  <span
+                    className={`font-mono text-[9px] uppercase tracking-[0.2em] mb-2 block transition-colors duration-300
+        ${copiedType === "email" ? "text-green-500" : "text-text-secondary group-hover:text-text-primary"}`}
+                  >
+                    {copiedType === "email"
+                      ? "Copied_To_Clipboard ✓"
+                      : "Electronic_Mail"}
                   </span>
 
-                  <a
-                    href="mailto:raihan.webml@gmail.com"
-                    className="text-lg font-bold tracking-tight border-b border-transparent group-hover:border-text-primary transition-all text-text-primary"
-                  >
-                    raihan.webml@gmail.com
-                  </a>
+                  {/* Teks & Ikon */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg font-bold tracking-tight text-text-primary border-b border-transparent group-hover:border-text-primary transition-all duration-300 pb-0.5">
+                      raihan.webml@gmail.com
+                    </span>
+
+                    {/* Wrapper Ikon */}
+                    <div className="text-text-secondary group-hover:text-text-primary transition-transform duration-300 group-hover:scale-110">
+                      {copiedType === "email" ? (
+                        <Check size={16} className="text-green-500" />
+                      ) : (
+                        <Copy size={16} />
+                      )}
+                    </div>
+                  </div>
                 </div>
 
-                <div className="group cursor-pointer">
-                  <span className="font-mono text-[9px] text-text-secondary uppercase tracking-[0.2em] mb-2 block group-hover:text-text-primary transition-colors">
-                    Secure_Line
+                {/* --- BLOK NOMOR TELEPON --- */}
+                <div
+                  onClick={() => handleCopy("+6289530516187", "phone")}
+                  className="group cursor-pointer flex flex-col items-start w-fit md:justify-self-end lg:justify-self-start"
+                >
+                  {/* Label */}
+                  <span
+                    className={`font-mono text-[9px] uppercase tracking-[0.2em] mb-2 block transition-colors duration-300
+        ${copiedType === "phone" ? "text-green-500" : "text-text-secondary group-hover:text-text-primary"}`}
+                  >
+                    {copiedType === "phone"
+                      ? "Copied_To_Clipboard ✓"
+                      : "Secure_Line"}
                   </span>
 
-                  <a
-                    href="https://wa.me/6289530516187"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg font-bold tracking-tight border-b border-transparent group-hover:border-text-primary transition-all text-text-primary"
-                  >
-                    +62 895-3051-6187
-                  </a>
+                  {/* Teks & Ikon */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg font-bold tracking-tight text-text-primary border-b border-transparent group-hover:border-text-primary transition-all duration-300 pb-0.5">
+                      +62 895-3051-6187
+                    </span>
+
+                    {/* Wrapper Ikon */}
+                    <div className="text-text-secondary group-hover:text-text-primary transition-transform duration-300 group-hover:scale-110">
+                      {copiedType === "phone" ? (
+                        <Check size={16} className="text-green-500" />
+                      ) : (
+                        <Copy size={16} />
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

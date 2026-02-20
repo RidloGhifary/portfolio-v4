@@ -65,12 +65,15 @@ const Home = ({ isTransitioning, finalizeTransition }) => {
 
   // Cleanup on unmount
   useEffect(() => {
-    return () => {
-      if (scrollTimeoutRef.current) {
-        cancelAnimationFrame(scrollTimeoutRef.current);
-      }
-    };
-  }, []);
+    // Pengaman: Kalau dalam 2 detik transisi belum kelar juga, paksa matikan
+    if (isTransitioning) {
+      const safetyTimer = setTimeout(() => {
+        finalizeTransition(); // Paksa panggil fungsi onComplete
+      }, 100);
+
+      return () => clearTimeout(safetyTimer);
+    }
+  }, [isTransitioning, finalizeTransition]);
 
   return (
     <div className="relative">

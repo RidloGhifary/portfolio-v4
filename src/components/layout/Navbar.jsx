@@ -124,7 +124,7 @@ const Navbar = ({ onNavClick }) => {
               transition={{ delay: 0.5 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="font-mono text-[10px] uppercase tracking-widest bg-text-primary text-brand-bg px-5 py-2 rounded-full hover:opacity-90 transition-all shadow-sm"
+              className="font-mono text-[10px] cursor-pointer uppercase tracking-widest bg-text-primary text-brand-bg px-5 py-2 rounded-full hover:opacity-90 transition-all shadow-sm"
             >
               Let's Talk
             </motion.button>

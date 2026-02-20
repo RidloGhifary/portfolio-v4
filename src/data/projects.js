@@ -80,7 +80,7 @@ export const projects = [
     slug: "point-of-sale",
     links: {
       live: "",
-      github: "",
+      github: "https://github.com/Aryhnr/POSRestoran",
     },
   },
   {
@@ -100,7 +100,7 @@ export const projects = [
     featured: true,
     slug: "village-website",
     links: {
-      live: "https://batahtimurmakmur.my.id/",
+      live: "",
       github: "",
     },
   },
