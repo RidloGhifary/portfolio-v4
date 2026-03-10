@@ -4,6 +4,15 @@ import { motion } from "framer-motion";
 const Hero = () => {
   const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.95] };
 
+  const rotateAnimation = {
+    rotate: [0, 360],
+    transition: {
+      duration: 12,
+      ease: "linear",
+      repeat: Infinity,
+    },
+  };
+
   return (
     <section
       id="home"
@@ -13,9 +22,8 @@ const Hero = () => {
       <div className="h-24 md:h-32 w-full flex-shrink-0" />
 
       {/* 2. BACKGROUND & SIDE TEXT */}
-      {/* <div className="absolute top-[5%] right-[-5%] w-[40vw] h-[40vw] bg-gray-400/30 dark:bg-blue-950/15 rounded-full blur-[120px] pointer-events-none z-0" /> */}
       <div className="absolute left-[-5vw] top-1/2 -translate-y-1/2 hidden xl:block pointer-events-none">
-        <span className="text-[15vw] font-black text-gray-400/15  uppercase rotate-90 block tracking-tighter">
+        <span className="text-[15vw] font-black text-gray-400/15 uppercase rotate-90 block tracking-tighter">
           RAIHAN
         </span>
       </div>
@@ -23,7 +31,46 @@ const Hero = () => {
       {/* 3. MAIN CONTENT */}
       <div className="relative z-10 px-6 md:px-12 lg:px-24 flex-grow flex flex-col justify-center">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="flex flex-col">
+          <div className="flex flex-col relative">
+            {/* --- LINGKARAN ABSOLUTE (DI ATAS KATA STACK) --- */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 1.5, duration: 1 }}
+              className="absolute top-[-40px] right-[-7%] md:right-[24%] lg:right-[23%] z-20"
+            >
+              <motion.div
+                animate={rotateAnimation}
+                className="relative flex items-center justify-center w-20 h-20 md:w-28 md:h-28"
+              >
+                {/* Background Hijau Muda */}
+                <div className="absolute inset-0 bg-[#CCFF00] rounded-full shadow-xl" />
+
+                {/* Text Melingkar Hitam */}
+                <svg
+                  viewBox="0 0 100 100"
+                  className="absolute inset-0 w-full h-full text-black fill-current p-1"
+                >
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                    />
+                  </defs>
+                  <text fontSize="9" fontWeight="900" letterSpacing="1">
+                    <textPath xlinkHref="#circlePath">
+                      FASTER. STRONGER. BETTER. • FASTER. STRONGER. BETTER. •
+                    </textPath>
+                  </text>
+                </svg>
+
+                {/* Star Icon Center */}
+                <div className="absolute text-black text-2xl md:text-3xl font-black">
+                  ✦
+                </div>
+              </motion.div>
+            </motion.div>
+
             {/* ROW 1 */}
             <div className="overflow-hidden">
               <motion.h1
@@ -56,11 +103,9 @@ const Hero = () => {
               </motion.span>
             </div>
 
-            {/* ROW 3: Nama & Garis & Machine Learning */}
+            {/* ROW 3 */}
             <div className="flex items-center gap-6 mt-4">
-              {/* Sisi Kiri: Garis + Nama (Hanya Desktop) */}
               <div className="hidden lg:flex flex-col flex-grow">
-                {/* Garis Horizontal Animasi */}
                 <div className="h-[1px] w-full bg-text-primary/10 relative overflow-hidden">
                   <motion.div
                     initial={{ scaleX: 0 }}
@@ -69,7 +114,6 @@ const Hero = () => {
                     className="absolute inset-0 bg-text-primary origin-left"
                   />
                 </div>
-                {/* Teks Nama Animasi */}
                 <motion.span
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -80,7 +124,6 @@ const Hero = () => {
                 </motion.span>
               </div>
 
-              {/* Sisi Kanan: Machine Learning */}
               <div className="overflow-hidden">
                 <motion.h1
                   initial={{ y: "110%" }}
@@ -96,9 +139,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* 4. FOOTER INFO (Grid System) */}
+      {/* 4. FOOTER INFO */}
       <div className="relative z-20 grid grid-cols-1 md:grid-cols-12 gap-8 px-6 md:px-12 lg:px-24 pb-12 items-end flex-shrink-0">
-        {/* Status & Focus Areas (Sejajar paling kiri) */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -117,7 +159,6 @@ const Hero = () => {
           </p>
         </motion.div>
 
-        {/* Bio Section (Berada di tengah grid) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -131,7 +172,6 @@ const Hero = () => {
           </p>
         </motion.div>
 
-        {/* CTA Button (Sejajar paling kanan) */}
         <div className="md:col-span-4 flex justify-end">
           <motion.a
             href="https://drive.google.com/file/d/1Qp--FYzeEKbp6-GlgE6jN0v4DJUPEozY/view?usp=sharing"
@@ -147,7 +187,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Grain Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </section>
   );
