@@ -30,7 +30,6 @@
 
     <!-- Inline Critical CSS -->
     <style>
-      /* Minimal CSS untuk mencegah FOUC (Flash of Unstyled Content) */
       body {
         margin: 0;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -44,7 +43,6 @@
         display: flex;
         flex-direction: column;
       }
-      /* Loading state skeleton (optional) */
       .loading-skeleton {
         background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
         background-size: 200% 100%;
@@ -56,24 +54,27 @@
       }
     </style>
 
-    <!-- SEO Title -->
-    <title>Raihan - Junior Web Developer</title>
+    <!-- SEO PRIMARY -->
+    <title>Raihan Portfolio — Junior Full-Stack Web Developer</title>
 
-    <!-- SEO Description -->
     <meta
       name="description"
       content="Portfolio Raihan — Junior Full-Stack Web Developer specializing in modern web development, scalable systems, and data-driven solutions."
     />
 
-    <!-- Optional SEO Keywords -->
+    <!-- Keywords (dibaca Bing, diabaikan Google — tetap boleh ada) -->
     <meta
       name="keywords"
-      content="junior web developer, junior full stack developer, web developer portfolio, react developer, full stack portfolio"
+      content="raihan portfolio, aryhnr, junior web developer, junior full stack developer, react developer, web developer portfolio"
     />
 
-    <!-- Open Graph (No Twitter) -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aryhnr-portofolio.vercel.app/" />
+
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Raihan — Junior Full-Stack Web Developer" />
+    <meta property="og:site_name" content="Raihan Portfolio" />
+    <meta property="og:title" content="Raihan Portfolio — Junior Full-Stack Web Developer" />
     <meta
       property="og:description"
       content="Portfolio Raihan, a Junior Full-Stack Web Developer showcasing web projects, scalable systems, and data-driven solutions."
@@ -82,6 +83,31 @@
     <meta property="og:image" content="https://aryhnr-portofolio.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- STRUCTURED DATA / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Raihan",
+      "url": "https://aryhnr-portofolio.vercel.app/",
+      "jobTitle": "Junior Full-Stack Web Developer",
+      "description": "Junior Full-Stack Web Developer specializing in modern web development, scalable systems, and data-driven solutions.",
+      "knowsAbout": ["Web Development", "Full-Stack Development", "React", "Node.js", "Scalable Systems"],
+      "sameAs": []
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Raihan Portfolio",
+      "url": "https://aryhnr-portofolio.vercel.app/",
+      "description": "Portfolio website of Raihan, a Junior Full-Stack Web Developer."
+    }
+    </script>
 
     <!-- Google Site Verification -->
     <meta
