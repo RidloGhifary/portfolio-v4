@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
-import { Copy, Check } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Check, Copy } from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +15,6 @@ const Contact = () => {
   });
   const [showModal, setShowModal] = useState(false);
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -24,33 +22,25 @@ const Contact = () => {
     });
   };
 
-  // Handle form submit - buka modal dulu
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowModal(true); // Tampilkan modal konfirmasi
+    setShowModal(true);
   };
 
-  // Fungsi kirim email sebenarnya
   const sendEmail = async () => {
     setShowModal(false);
     setStatus({ loading: true, success: false, error: false });
 
     try {
-      const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-      };
-
-      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
       // Success
       setStatus({ loading: false, success: true, error: false });
-      setFormData({ name: "", email: "", message: "" });
+      // setFormData({ name: "", email: "", message: "" });
 
       setTimeout(() => {
         setStatus({ loading: false, success: false, error: false });
@@ -95,8 +85,7 @@ const Contact = () => {
       style={{
         contentVisibility: "auto",
         containIntrinsicSize: "0 700px",
-      }}
-    >
+      }}>
       <div className="w-full px-4 sm:px-6 md:px-12 lg:px-24 relative z-10">
         <div className="flex items-baseline gap-4 md:gap-6 mb-8 md:mb-12">
           <div className="flex-1 h-[1px] bg-border-primary"></div>
@@ -129,7 +118,7 @@ const Contact = () => {
                   Base_Operations
                 </span>
                 <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text-primary">
-                  Pamekasan, Madura
+                  Jombang, Jawa Timur
                 </h3>
                 <p className="font-mono text-[11px] text-text-secondary uppercase tracking-widest mt-1">
                   EAST JAVA, Indonesia (IDN)
@@ -140,14 +129,12 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 pt-8 md:pt-10 border-t border-border-primary/50 w-full">
                 {/* --- BLOK EMAIL --- */}
                 <div
-                  onClick={() => handleCopy("raihan.webml@gmail.com", "email")}
-                  className="group cursor-pointer flex flex-col items-start w-fit"
-                >
+                  onClick={() => handleCopy("ridloghfry@gmail.com", "email")}
+                  className="group cursor-pointer flex flex-col items-start w-fit">
                   {/* Label */}
                   <span
                     className={`font-mono text-[9px] uppercase tracking-[0.2em] mb-2 block transition-colors duration-300
-        ${copiedType === "email" ? "text-green-500" : "text-text-secondary group-hover:text-text-primary"}`}
-                  >
+        ${copiedType === "email" ? "text-green-500" : "text-text-secondary group-hover:text-text-primary"}`}>
                     {copiedType === "email"
                       ? "Copied_To_Clipboard ✓"
                       : "Electronic_Mail"}
@@ -156,44 +143,12 @@ const Contact = () => {
                   {/* Teks & Ikon */}
                   <div className="flex items-center gap-3">
                     <span className="text-lg font-bold tracking-tight text-text-primary border-b border-transparent group-hover:border-text-primary transition-all duration-300 pb-0.5">
-                      raihan.webml@gmail.com
+                      ridloghfry@gmail.com
                     </span>
 
                     {/* Wrapper Ikon */}
                     <div className="text-text-secondary group-hover:text-text-primary transition-transform duration-300 group-hover:scale-110">
                       {copiedType === "email" ? (
-                        <Check size={16} className="text-green-500" />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* --- BLOK NOMOR TELEPON --- */}
-                <div
-                  onClick={() => handleCopy("+6289530516187", "phone")}
-                  className="group cursor-pointer flex flex-col items-start w-fit md:justify-self-end lg:justify-self-start"
-                >
-                  {/* Label */}
-                  <span
-                    className={`font-mono text-[9px] uppercase tracking-[0.2em] mb-2 block transition-colors duration-300
-        ${copiedType === "phone" ? "text-green-500" : "text-text-secondary group-hover:text-text-primary"}`}
-                  >
-                    {copiedType === "phone"
-                      ? "Copied_To_Clipboard ✓"
-                      : "Secure_Line"}
-                  </span>
-
-                  {/* Teks & Ikon */}
-                  <div className="flex items-center gap-3">
-                    <span className="text-lg font-bold tracking-tight text-text-primary border-b border-transparent group-hover:border-text-primary transition-all duration-300 pb-0.5">
-                      +62 895-3051-6187
-                    </span>
-
-                    {/* Wrapper Ikon */}
-                    <div className="text-text-secondary group-hover:text-text-primary transition-transform duration-300 group-hover:scale-110">
-                      {copiedType === "phone" ? (
                         <Check size={16} className="text-green-500" />
                       ) : (
                         <Copy size={16} />
@@ -296,8 +251,7 @@ const Contact = () => {
                     status.success
                       ? "bg-green-500/10 border-green-500/30 text-green-600"
                       : "bg-red-500/10 border-red-500/30 text-red-600"
-                  }`}
-                >
+                  }`}>
                   <p className="font-mono text-xs uppercase tracking-wider">
                     {status.success
                       ? "✓ Message sent successfully!"
@@ -316,8 +270,7 @@ const Contact = () => {
                   status.loading
                     ? "bg-border-primary text-text-muted cursor-not-allowed"
                     : "bg-text-primary text-brand-bg hover:bg-neutral-400 dark:hover:bg-neutral-600 hover:text-text-primary"
-                }`}
-              >
+                }`}>
                 {status.loading ? "Sending..." : "Send_Inquiry"}
               </motion.button>
             </form>
@@ -333,15 +286,13 @@ const Contact = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-neutral-900/40 dark:bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={() => setShowModal(false)}
-          >
+            onClick={() => setShowModal(false)}>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-brand-secondary border border-border-primary max-w-md w-full p-8 relative shadow-2xl"
-            >
+              className="bg-brand-secondary border border-border-primary max-w-md w-full p-8 relative shadow-2xl">
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-6 h-[1px] bg-text-primary" />
@@ -387,14 +338,12 @@ const Contact = () => {
               <div className="grid grid-cols-2 gap-4">
                 <button
                   onClick={() => setShowModal(false)}
-                  className="py-3 border border-border-primary text-text-secondary hover:text-text-primary hover:border-text-primary font-mono text-xs uppercase tracking-widest transition-all"
-                >
+                  className="py-3 border border-border-primary text-text-secondary hover:text-text-primary hover:border-text-primary font-mono text-xs uppercase tracking-widest transition-all">
                   Cancel
                 </button>
                 <button
                   onClick={sendEmail}
-                  className="py-3 bg-text-primary text-brand-bg font-black uppercase text-xs tracking-widest hover:bg-neutral-500 dark:hover:bg-neutral-700 transition-colors"
-                >
+                  className="py-3 bg-text-primary text-brand-bg font-black uppercase text-xs tracking-widest hover:bg-neutral-500 dark:hover:bg-neutral-700 transition-colors">
                   Send Now
                 </button>
               </div>

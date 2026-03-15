@@ -1,6 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "swiper/css";
 
 const Footer = () => {
@@ -55,8 +54,7 @@ const Footer = () => {
                       <a
                         href={`#${item.toLowerCase()}`}
                         onClick={(e) => handleFooterNav(e, item.toLowerCase())}
-                        className="block text-1xl md:text-2xl font-black uppercase tracking-tight hover:translate-x-4 transition-all duration-300"
-                      >
+                        className="block text-1xl md:text-2xl font-black uppercase tracking-tight hover:translate-x-4 transition-all duration-300">
                         {item}
                       </a>
                     </li>
@@ -74,22 +72,24 @@ const Footer = () => {
                     {[
                       {
                         name: "LinkedIn",
-                        url: "https://linkedin.com/in/aryhnr",
+                        url: "https://www.linkedin.com/in/ridlo-ghifary/",
                       },
-                      { name: "Github", url: "https://github.com/aryhnr" },
+                      {
+                        name: "Github",
+                        url: "https://github.com/RidloGhifary",
+                      },
                       {
                         name: "Instagram",
-                        url: "https://instagram.com/_aryhnr",
+                        url: "https://www.instagram.com/rdllghifary_",
                       },
-                      { name: "Email", url: "mailto:raihan.webml@gmail.com" },
+                      { name: "Email", url: "mailto:ridloghfry@gmail.com" },
                     ].map((social) => (
                       <a
                         key={social.name}
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-sm text-text-muted hover:text-text-primary uppercase tracking-widest transition-colors flex items-center gap-2 group"
-                      >
+                        className="font-mono text-sm text-text-muted hover:text-text-primary uppercase tracking-widest transition-colors flex items-center gap-2 group">
                         <span>[{social.name}]</span>
                         <span className="w-0 h-[1px] bg-text-primary group-hover:w-8 transition-all duration-300" />
                       </a>
@@ -102,7 +102,7 @@ const Footer = () => {
                     Base_Coordinates
                   </h4>
                   <p className="text-xl font-bold uppercase tracking-tight">
-                    PAMEKASAN, MADURA <br />
+                    JOMBANG, EAST JAVA <br />
                     <span className="text-text-muted text-sm font-mono tracking-widest">
                       EAST JAVA, IDN
                     </span>
@@ -114,8 +114,7 @@ const Footer = () => {
             {/* COPYRIGHT BLOCK */}
             <div className="flex flex-col md:flex-row justify-between items-end border-t border-border-primary pt-8 gap-4">
               <p className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em]">
-                &copy; {currentYear} ARYHNR_DEV_SYSTEMS. <br /> ALL RIGHTS
-                RESERVED.
+                &copy; {currentYear} RIDLOGHFRY. <br /> ALL RIGHTS RESERVED.
               </p>
               <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em] text-right">
                 <p>Version 2.5.0</p>
@@ -130,8 +129,7 @@ const Footer = () => {
               onClick={scrollToTop}
               whileHover={{ scale: 0.98 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative w-full h-full min-h-[300px] bg-text-primary border border-border-secondary flex flex-col justify-between p-8 overflow-hidden"
-            >
+              className="group relative w-full h-full min-h-[300px] bg-text-primary border border-border-secondary flex flex-col justify-between p-8 overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-50">
                 <svg
                   width="24"
@@ -139,8 +137,7 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  className="text-brand-bg rotate-45 group-hover:rotate-0 transition-transform duration-500"
-                >
+                  className="text-brand-bg rotate-45 group-hover:rotate-0 transition-transform duration-500">
                   <path d="M7 17L17 7M17 7H7M17 7V17" strokeWidth="2" />
                 </svg>
               </div>
@@ -163,8 +160,7 @@ const Footer = () => {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="text-brand-bg group-hover:text-text-primary transition-colors"
-                  >
+                    className="text-brand-bg group-hover:text-text-primary transition-colors">
                     <path d="M12 19V5M5 12l7-7 7 7" />
                   </svg>
                 </motion.div>
@@ -190,8 +186,7 @@ const Footer = () => {
             {["REACT", "TAILWIND", "SWIPER"].map((tech) => (
               <span
                 key={tech}
-                className="font-mono text-[8px] border border-border-primary px-2 py-1 text-text-muted rounded uppercase"
-              >
+                className="font-mono text-[8px] border border-border-primary px-2 py-1 text-text-muted rounded uppercase">
                 {tech}
               </span>
             ))}

@@ -24,8 +24,7 @@ const Experience = () => {
       style={{
         contentVisibility: "auto",
         containIntrinsicSize: "0 800px",
-      }}
-    >
+      }}>
       <div className="w-full px-6 md:px-12 lg:px-24">
         <div className="flex items-baseline gap-4 md:gap-6 mb-8 md:mb-12">
           <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.25em] text-text-secondary whitespace-nowrap">
@@ -43,8 +42,7 @@ const Experience = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[14vw] md:text-[8vw] lg:text-[7.5vw] font-black tracking-tighter uppercase leading-[0.85] text-text-primary"
-              >
+                className="text-[14vw] md:text-[8vw] lg:text-[7.5vw] font-black tracking-tighter uppercase leading-[0.85] text-text-primary">
                 Selected <br />
                 <span className="font-serif italic font-light text-text-secondary lowercase">
                   Experience.
@@ -59,12 +57,11 @@ const Experience = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="flex flex-col md:items-end gap-4 md:gap-6 border-t border-border-secondary md:border-none pt-6 md:pt-0"
-          >
+            className="flex flex-col md:items-end gap-4 md:gap-6 border-t border-border-secondary md:border-none pt-6 md:pt-0">
             {/* Penanda Tahun bergaya badge */}
             <div className="bg-brand-tertiary md:bg-transparent px-3 py-1 md:p-0 w-fit">
               <p className="font-mono text-[10px] md:text-xs text-text-secondary font-bold uppercase tracking-widest">
-                EST. 2020 — PRESENT
+                EST. 2025 — PRESENT
               </p>
             </div>
 
@@ -86,8 +83,7 @@ const Experience = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="group relative border-t border-border-primary py-10 transition-all duration-500 hover:border-text-primary"
-            >
+              className="group relative border-t border-border-primary py-10 transition-all duration-500 hover:border-text-primary">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                 {/* KOLOM KIRI: Meta Data (Span 3) */}
                 <div className="lg:col-span-3 flex flex-row lg:flex-col justify-between lg:justify-start gap-2">
@@ -98,8 +94,7 @@ const Experience = () => {
                   {/* Status Indicator */}
                   <div className="flex items-center gap-2 mt-1">
                     <span
-                      className={`h-1.5 w-1.5 rounded-full ${exp.status === "ACTIVE" ? "bg-green-500 animate-pulse" : "bg-neutral-300 dark:bg-neutral-700"}`}
-                    ></span>
+                      className={`h-1.5 w-1.5 rounded-full ${exp.status === "ACTIVE" ? "bg-green-500 animate-pulse" : "bg-neutral-300 dark:bg-neutral-700"}`}></span>
                     <span className="font-mono text-[10px] uppercase text-text-secondary">
                       {exp.status}
                     </span>
@@ -140,8 +135,7 @@ const Experience = () => {
                     {exp.skills.map((skill, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 bg-brand-tertiary border border-border-primary rounded-full text-[10px] font-bold uppercase tracking-wide text-text-muted group-hover:border-border-secondary transition-colors"
-                      >
+                        className="px-3 py-1 bg-brand-tertiary border border-border-primary rounded-full text-[10px] font-bold uppercase tracking-wide text-text-muted group-hover:border-border-secondary transition-colors">
                         {skill}
                       </span>
                     ))}

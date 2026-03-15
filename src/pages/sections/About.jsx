@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import FotoDiri from "../../assets/fotodiri.jpeg"; // Pastikan path sesuai
+import { useRef } from "react";
+import FotoDiri from "../../assets/ridlo.png";
 
 const About = () => {
   const containerRef = useRef(null);
@@ -33,8 +33,7 @@ const About = () => {
       style={{
         contentVisibility: "auto",
         containIntrinsicSize: "0 1000px",
-      }}
-    >
+      }}>
       {/* Background Gradient & Title (Hidden overflow) */}
       <div className="absolute top-0 left-0 w-full h-32 z-20 pointer-events-none" />
 
@@ -80,7 +79,7 @@ const About = () => {
                   filter: { duration: 1.5 },
                 }}
                 src={FotoDiri}
-                alt="Raihan"
+                alt="Ridlo Achmad Ghifary"
                 className="w-full h-full object-cover object-center lg:object-bottom group-hover:opacity-100 transition-opacity duration-500"
                 loading="lazy"
                 decoding="async"
@@ -112,8 +111,8 @@ const About = () => {
                   </span>
                 </div>
                 <h4 className="text-lg md:text-2xl font-black uppercase leading-[0.9] text-text-primary tracking-tight">
-                  Akh. Raihan
-                  <span className="text-text-secondary"> Gimnastiar .R</span>
+                  Ridlo Achmad
+                  <span className="text-text-secondary"> Ghifary</span>
                 </h4>
               </div>
             </div>
@@ -126,8 +125,7 @@ const About = () => {
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-text-primary"
-              >
+                className="text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-text-primary">
                 Crafting <br />
                 <span className="text-text-primary">Code &</span> <br />
                 <span className="font-serif italic font-light text-text-secondary text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
@@ -145,13 +143,13 @@ const About = () => {
                 <p className="text-sm md:text-base text-text-secondary font-light leading-relaxed">
                   I am{" "}
                   <span className="text-text-primary font-semibold">
-                    Raihan
+                    Ridlo Achmad Ghifary
                   </span>
-                  , a fresh graduate from{" "}
+                  , a graduated student in Full-Stack Web Development from{" "}
                   <span className="text-text-primary font-semibold">
-                    University of Trunojoyo Madura
+                    Purwadhika Digital Technology School
                   </span>
-                  . I focus on building scalable digital ecosystems.
+                  . With a passion for crafting seamless digital experiences.
                 </p>
               </div>
 
@@ -162,13 +160,12 @@ const About = () => {
                 <p className="text-sm md:text-base text-text-secondary font-light leading-relaxed italic">
                   Specializing in{" "}
                   <span className="text-text-primary font-bold">
-                    Full-Stack Web
+                    Full-Stack Web Development
                   </span>{" "}
-                  and independent{" "}
+                  and{" "}
                   <span className="text-text-primary font-bold">
-                    Machine Learning
-                  </span>{" "}
-                  research.
+                    Tech Writing
+                  </span>
                 </p>
               </div>
             </div>
@@ -176,17 +173,16 @@ const About = () => {
             {/* Bottom Row: Specs & Skills */}
             <div className="grid grid-cols-2 md:grid-cols-3 border-b border-border-primary lg:flex-1">
               {[
-                { label: "Specialization", val: "Fullstack / ML" },
-                { label: "Exp", val: "<1 Years" },
-                { label: "Location", val: "Madura, ID" },
+                { label: "Specialization", val: "Fullstack" },
+                { label: "Exp", val: ">1 Years" },
+                { label: "Location", val: "Surakarta, ID" },
               ].map((item, i) => (
                 <div
                   key={i}
                   className={`p-6 border-r border-border-primary hover:bg-text-primary group transition-colors duration-500
                     ${i === 1 ? "border-r-0 md:border-r" : ""} 
                     ${i === 2 ? "col-span-2 md:col-span-1 border-t md:border-t-0 border-r-0" : ""}
-                  `}
-                >
+                  `}>
                   <p className="text-[9px] md:text-[10px] font-mono uppercase text-text-secondary group-hover:text-brand-bg/60 transition-colors tracking-widest mb-1">
                     {item.label}
                   </p>
@@ -198,12 +194,11 @@ const About = () => {
             </div>
 
             {/* CTA Row */}
-            <a
+            {/* <a
               href="https://drive.google.com/file/d/1Qp--FYzeEKbp6-GlgE6jN0v4DJUPEozY/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 md:p-8 bg-text-primary text-brand-bg flex justify-between items-center group cursor-pointer overflow-hidden relative block decoration-none"
-            >
+              className="p-6 md:p-8 bg-text-primary text-brand-bg flex justify-between items-center group cursor-pointer overflow-hidden relative block decoration-none">
               <span className="font-black uppercase tracking-widest text-lg md:text-2xl z-10 flex items-center gap-2 group-hover:text-text-primary transition-colors">
                 <span className="group-hover:text-text-primary transition-colors text-sm md:text-xl">
                   {">"}
@@ -213,13 +208,12 @@ const About = () => {
 
               <motion.div
                 whileHover={{ scale: 1.5 }}
-                className="text-2xl md:text-4xl z-10 group-hover:text-text-primary transition-colors"
-              >
+                className="text-2xl md:text-4xl z-10 group-hover:text-text-primary transition-colors">
                 ↓
               </motion.div>
 
               <div className="absolute inset-0 bg-brand-bg translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500" />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

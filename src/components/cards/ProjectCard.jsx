@@ -9,8 +9,7 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: index * 0.1 }}
-      className="group cursor-pointer w-full"
-    >
+      className="group cursor-pointer w-full">
       {/* Image Container */}
       <div className="relative aspect-[16/10] overflow-hidden bg-gray-100 mb-6">
         <motion.img
@@ -32,8 +31,7 @@ const ProjectCard = ({ project, index }) => {
         <Link
           to={`/project/${project.slug}`}
           aria-label="View Hospital Cashier System case study"
-          className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-10"
-        >
+          className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-10">
           <span className="bg-white text-black px-6 py-3 rounded-full font-mono text-[10px] uppercase tracking-widest translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
             View Case Study
           </span>

@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
@@ -16,15 +15,14 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full bg-brand-bg text-text-primary overflow-hidden flex flex-col selection:bg-accent selection:text-brand-bg"
-    >
+      className="relative min-h-screen w-full bg-brand-bg text-text-primary overflow-hidden flex flex-col selection:bg-accent selection:text-brand-bg">
       {/* 1. SPACER */}
       <div className="h-24 md:h-32 w-full flex-shrink-0" />
 
       {/* 2. BACKGROUND & SIDE TEXT */}
       <div className="absolute left-[-5vw] top-1/2 -translate-y-1/2 hidden xl:block pointer-events-none">
         <span className="text-[15vw] font-black text-gray-400/15 uppercase rotate-90 block tracking-tighter">
-          RAIHAN
+          RIDLO A.G
         </span>
       </div>
 
@@ -37,20 +35,15 @@ const Hero = () => {
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 1.5, duration: 1 }}
-              className="absolute top-[-40px] right-[-7%] md:right-[24%] lg:right-[23%] z-20"
-            >
+              className="absolute top-[-40px] right-[-7%] md:right-[24%] lg:right-[23%] z-20">
               <motion.div
                 animate={rotateAnimation}
-                className="relative flex items-center justify-center w-20 h-20 md:w-28 md:h-28"
-              >
-                {/* Background Hijau Muda */}
+                className="relative flex items-center justify-center w-20 h-20 md:w-28 md:h-28">
                 <div className="absolute inset-0 bg-[#CCFF00] rounded-full shadow-xl" />
 
-                {/* Text Melingkar Hitam */}
                 <svg
                   viewBox="0 0 100 100"
-                  className="absolute inset-0 w-full h-full text-black fill-current p-1"
-                >
+                  className="absolute inset-0 w-full h-full text-black fill-current p-1">
                   <defs>
                     <path
                       id="circlePath"
@@ -59,12 +52,12 @@ const Hero = () => {
                   </defs>
                   <text fontSize="9" fontWeight="900" letterSpacing="1">
                     <textPath xlinkHref="#circlePath">
-                      FASTER. STRONGER. BETTER. • FASTER. STRONGER. BETTER. •
+                      RIDLO ACHMAD GHIFARY &nbsp;•&nbsp; FULL-STACK
+                      &nbsp;•&nbsp;
                     </textPath>
                   </text>
                 </svg>
 
-                {/* Star Icon Center */}
                 <div className="absolute text-black text-2xl md:text-3xl font-black">
                   ✦
                 </div>
@@ -77,8 +70,7 @@ const Hero = () => {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={transition}
-                className="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter uppercase italic"
-              >
+                className="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter uppercase italic">
                 FULL STACK
               </motion.h1>
             </div>
@@ -89,16 +81,14 @@ const Hero = () => {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ ...transition, delay: 0.1 }}
-                className="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter uppercase italic"
-              >
+                className="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter uppercase italic">
                 DEVELOPER
               </motion.h1>
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
-                className="font-serif italic text-4xl md:text-6xl text-text-muted"
-              >
+                className="font-serif italic text-4xl md:text-6xl text-text-muted">
                 &
               </motion.span>
             </div>
@@ -118,9 +108,8 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2, duration: 0.8 }}
-                  className="font-mono text-[10px] uppercase tracking-[0.5em] mt-3"
-                >
-                  AKH. RAIHAN GIMNASTIAR RAKHMAN
+                  className="font-mono text-[10px] uppercase tracking-[0.5em] mt-3">
+                  RIDLO ACHMAD GHIFARY
                 </motion.span>
               </div>
 
@@ -129,9 +118,8 @@ const Hero = () => {
                   initial={{ y: "110%" }}
                   animate={{ y: 0 }}
                   transition={{ ...transition, delay: 0.2 }}
-                  className="text-[12vw] md:text-[8.5vw] font-serif italic font-light tracking-tight leading-none"
-                >
-                  Machine Learning
+                  className="text-[12vw] md:text-[8.5vw] px-2 font-serif italic font-light tracking-tight leading-none">
+                  Tech Writer
                 </motion.h1>
               </div>
             </div>
@@ -145,14 +133,13 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="md:col-span-4 font-mono text-[9px] uppercase tracking-[0.3em]"
-        >
+          className="md:col-span-4 font-mono text-[9px] uppercase tracking-[0.3em]">
           <div className="flex items-center gap-2 mb-2">
             <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
             <span className="font-bold">Focus Areas:</span>
           </div>
           <p className="text-text-secondary">
-            Full-Stack Web Developer · Machine Learning
+            Full-Stack Web Developer · Tech Writer
           </p>
           <p className="text-text-secondary">
             Scalable Systems · AI-Powered Applications
@@ -163,8 +150,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
-          className="md:col-span-4 border-l border-text-primary pl-6 hidden md:block"
-        >
+          className="md:col-span-4 border-l border-text-primary pl-6 hidden md:block">
           <p className="text-sm md:text-base font-medium leading-relaxed tracking-tight text-text-secondary">
             Designing scalable systems where{" "}
             <span className="italic font-serif">robust code</span> meets{" "}
@@ -172,19 +158,18 @@ const Hero = () => {
           </p>
         </motion.div>
 
-        <div className="md:col-span-4 flex justify-end">
+        {/* <div className="md:col-span-4 flex justify-end">
           <motion.a
             href="https://drive.google.com/file/d/1Qp--FYzeEKbp6-GlgE6jN0v4DJUPEozY/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative px-10 py-5 bg-text-primary text-brand-bg rounded-full overflow-hidden transition-all duration-500 font-mono text-[10px] uppercase tracking-widest cursor-pointer inline-block"
-          >
+            className="group relative px-10 py-5 bg-text-primary text-brand-bg rounded-full overflow-hidden transition-all duration-500 font-mono text-[10px] uppercase tracking-widest cursor-pointer inline-block">
             <span className="relative z-10">Download Resume</span>
             <div className="absolute inset-0 bg-neutral-800 dark:bg-neutral-200 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </motion.a>
-        </div>
+        </div> */}
       </div>
 
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />

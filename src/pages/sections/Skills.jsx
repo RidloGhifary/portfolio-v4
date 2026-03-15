@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { skills } from "../../data/skills";
 
@@ -23,8 +23,7 @@ const Skills = () => {
       style={{
         contentVisibility: "auto",
         containIntrinsicSize: "0 600px",
-      }}
-    >
+      }}>
       <div className="w-full px-6 md:px-12 lg:px-24">
         <div className="mb-10 pb-10">
           {/* 1. Label Atas */}
@@ -53,7 +52,7 @@ const Skills = () => {
                 Fullstack Env.
               </div>
               <div className="font-mono text-[10px] text-text-secondary uppercase tracking-widest leading-relaxed">
-                Laravel • React • DevOps
+                I build scalable web applications and write about tech.
               </div>
             </div>
           </div>
@@ -75,20 +74,17 @@ const Skills = () => {
             activeTab.id === item.id
               ? "bg-text-primary text-brand-bg dark:bg-brand-secondary dark:text-text-primary"
               : "bg-brand-bg text-text-primary hover:bg-brand-secondary"
-          }`}
-              >
+          }`}>
                 <div className="relative z-10 text-center lg:text-left">
                   <span
                     className={`font-mono text-[8px] md:text-[9px] lg:text-[10px] mb-1 md:mb-2 lg:mb-4 block
-              ${activeTab.id === item.id ? "text-neutral-400 dark:text-text-muted" : "text-text-muted"}`}
-                  >
+              ${activeTab.id === item.id ? "text-neutral-400 dark:text-text-muted" : "text-text-muted"}`}>
                     [{item.id}]
                   </span>
 
                   <h3
                     className="text-lg md:text-xl lg:text-4xl font-black uppercase tracking-tighter leading-tight
-            transition-transform duration-500 group-active:scale-95"
-                  >
+            transition-transform duration-500 group-active:scale-95">
                     {item.name}
                   </h3>
                 </div>
@@ -115,8 +111,7 @@ const Skills = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                className="w-full"
-              >
+                className="w-full">
                 <div className="flex items-center gap-4 mb-12 md:mb-16">
                   <div className="h-[1px] w-8 md:w-12 bg-text-primary" />
                   <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-bold text-text-secondary">
@@ -137,21 +132,11 @@ const Skills = () => {
                         </span>
                       </div>
 
-                      <div className="h-[2px] w-full bg-border-primary relative overflow-hidden">
+                      <div className="h-0.5 w-full bg-text-primary relative overflow-hidden">
                         <motion.div
                           initial={{ x: "-100%" }}
-                          animate={{
-                            x:
-                              tool.level === "Expert"
-                                ? "0%"
-                                : tool.level === "Advanced"
-                                  ? "-20%"
-                                  : tool.level === "Intermediate"
-                                    ? "-40%"
-                                    : "-60%",
-                          }}
+                          animate={{ x: "100%" }}
                           transition={{ duration: 1.2, ease: "circOut" }}
-                          className="absolute inset-0 bg-text-primary"
                         />
                       </div>
                     </div>
@@ -162,8 +147,7 @@ const Skills = () => {
                 <div
                   className="absolute bottom-6 md:bottom-10 right-6 md:right-10
           opacity-[0.02] text-text-primary text-[8rem] md:text-[12rem]
-          font-black pointer-events-none select-none leading-none"
-                >
+          font-black pointer-events-none select-none leading-none">
                   {activeTab.id}
                 </div>
               </motion.div>

@@ -1,8 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import Hero from "./sections/Hero";
 import TransitionPortal from "../components/common/TransitionPortal";
-import { lazy, Suspense } from "react";
+import Hero from "./sections/Hero";
 
 const Projects = lazy(() => import("./sections/Projects"));
 const Experience = lazy(() => import("./sections/Experience"));

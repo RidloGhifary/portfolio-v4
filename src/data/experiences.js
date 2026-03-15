@@ -1,32 +1,31 @@
 export const experiences = [
   {
     id: "01",
+    company: "PT. Daya Rekadigital Indonesia",
+    role: "Full-Stack Developer",
+    period: "Oct 2025 — PRESENT",
+    status: "ACTIVE",
+    type: "FULLTIME",
+    description:
+      "Contributing to the development of innovative web applications, collaborating with cross-functional teams to deliver high-quality software solutions and drive business growth.",
+    skills: ["NEXTJS", "TAILWINDCSS", "EXPRESSJS", "MYSQL", "DOCKER", "GIT"],
+  },
+  {
+    id: "02",
     company: "FREELANCE",
     role: "Fullstack Web Developer",
     period: "2025 — PRESENT",
     status: "ACTIVE",
     type: "FREELANCE",
     description:
-      "Played a key role in front-end development, building responsive user interfaces with ReactJS (Inertia.js), TailwindCSS, and AlpineJS, while supporting backend tasks using Laravel and MySQL.",
+      "Building custom web applications for clients, specializing in full-stack development with a focus on performance and user experience.",
     skills: [
-      "LARAVEL",
-      "INERTIAJS",
       "REACTJS",
-      "ALPINEJS",
+      "NEXTJS",
       "TAILWINDCSS",
+      "EXPRESSJS",
       "MYSQL",
-      "GIT",
+      "ORACLE",
     ],
-  },
-  {
-    id: "02",
-    company: "Diskominfo Bangkalan",
-    role: "Full-Stack Developer",
-    period: "Jul 2024 — Okt 2024",
-    status: "COMPLETED",
-    type: "INTERNSHIP",
-    description:
-      "Developed a web-based radio live streaming platform, handling both frontend and backend features including news management and broadcast scheduling.",
-    skills: ["LARAVEL", "MYSQL", "BOOTSTRAP", "JAVASCRIPT", "GIT"],
   },
 ];
