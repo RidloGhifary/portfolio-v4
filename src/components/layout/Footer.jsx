@@ -75,6 +75,10 @@ const Footer = () => {
                         url: "https://www.linkedin.com/in/ridlo-ghifary/",
                       },
                       {
+                        name: "Medium",
+                        url: "https://medium.com/@ridloghfry",
+                      },
+                      {
                         name: "Github",
                         url: "https://github.com/RidloGhifary",
                       },
