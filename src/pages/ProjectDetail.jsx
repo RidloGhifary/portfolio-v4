@@ -107,7 +107,7 @@ const ProjectDetail = () => {
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="max-w-[1800px] mx-auto"
+            className="max-w-450 mx-auto"
           >
             <motion.div
               variants={reveal}
@@ -162,12 +162,12 @@ const ProjectDetail = () => {
         <section className="w-full my-10 overflow-hidden">
           <motion.div
             style={{ y: yParallax }}
-            className="w-full hfull bg-brand-tertiary relative"
+            className="w-full h-full bg-brand-tertiary relative"
           >
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover object-center scale-110"
+              className="w-full h-full object-cover object-center"
               loading="lazy"
               decoding="async"
               fetchpriority="low"
@@ -175,7 +175,7 @@ const ProjectDetail = () => {
                 willChange: "transform",
                 backfaceVisibility: "hidden",
                 WebkitBackfaceVisibility: "hidden",
-                transform: "translateZ(0) scale(1.1)",
+                transform: "translateZ(0)",
               }}
             />
           </motion.div>
@@ -259,7 +259,7 @@ const ProjectDetail = () => {
                 <span className="font-mono text-xs font-bold text-text-primary uppercase tracking-[0.3em] group-hover:text-brand-bg transition-colors duration-500">
                   Next Case Study
                 </span>
-                <div className="h-[1px] w-12 bg-text-primary group-hover:bg-brand-bg transition-colors duration-500" />
+                <div className="h-px w-12 bg-text-primary group-hover:bg-brand-bg transition-colors duration-500" />
               </div>
 
               {/* Judul Masif & Solid */}
