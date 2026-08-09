@@ -35,7 +35,7 @@ export const projects = [
     featured: false,
     slug: "nikahku",
     links: {
-      live: "https://nikahku.ridloghfry.net/",
+      live: "https://nikahku.ridlolabs.net/",
       github: "-",
     },
   },
