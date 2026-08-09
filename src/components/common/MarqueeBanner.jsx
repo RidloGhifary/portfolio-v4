@@ -8,11 +8,26 @@ const MarqueeBanner = ({ bgColor, textColor, text, direction = "normal" }) => {
   const slides = Array(12).fill(text);
 
   return (
-    <div
-      className="w-full py-3 md:py-5 border-y-2 border-black flex items-center overflow-hidden"
-      style={{ backgroundColor: bgColor }}
+  import React, { useEffect, useState } from "react";
     >
       <style>{`
+    const [SwiperComp, setSwiperComp] = useState(null);
+
+    useEffect(() => {
+      let mounted = true;
+      // dynamically import swiper only when this component mounts
+      Promise.all([import('swiper/react'), import('swiper/modules'), import('swiper/css')])
+        .then(([reactModule, modules]) => {
+          if (!mounted) return;
+          const Swiper = reactModule.Swiper;
+          const SwiperSlide = reactModule.SwiperSlide;
+          const Autoplay = modules.Autoplay || modules.autoplay || modules.default?.Autoplay;
+          setSwiperComp({ Swiper, SwiperSlide, Autoplay });
+        })
+        .catch(() => {});
+      return () => { mounted = false; };
+    }, []);
+
         .marquee-swiper .swiper-wrapper {
           transition-timing-function: linear !important;
         }

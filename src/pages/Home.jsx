@@ -2,6 +2,9 @@ import { lazy, Suspense, useCallback, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import TransitionPortal from "../components/common/TransitionPortal";
 import Hero from "./sections/Hero";
+import SEO from "../components/SEO";
+import StructuredData from "../components/Schema";
+import { projects } from "../data/projects";
 
 const Projects = lazy(() => import("./sections/Projects"));
 const Experience = lazy(() => import("./sections/Experience"));
@@ -76,6 +79,30 @@ const Home = ({ isTransitioning, finalizeTransition }) => {
 
   return (
     <div className="relative">
+      <SEO
+        title="Home"
+        description={`Ridlo Achmad Ghifary — Full-Stack Web Developer building modern web apps with React, TypeScript, and Node.js. Explore projects, services, and contact information.`}
+        keywords={`Ridlo Achmad Ghifary, Full Stack Web Developer, React, TypeScript, Node.js`}
+        url={`https://v2.ridloghfry.web.id/`}
+      />
+
+      <StructuredData
+        person={{
+          name: "Ridlo Achmad Ghifary",
+          url: "https://v2.ridloghfry.web.id/",
+          jobTitle: "Full-Stack Web Developer",
+          description:
+            "Ridlo Achmad Ghifary — Full-Stack Web Developer building modern web apps with React, TypeScript, and Node.js.",
+          sameAs: [],
+        }}
+        website={{
+          name: "Ridlo Portfolio",
+          url: "https://v2.ridloghfry.web.id/",
+          description:
+            "Portfolio website of Ridlo Achmad Ghifary, Full-Stack Web Developer.",
+        }}
+        projects={projects}
+      />
       <TransitionPortal
         isActive={isTransitioning}
         onComplete={finalizeTransition}

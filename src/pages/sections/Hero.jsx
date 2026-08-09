@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import MotionLoader from "../../components/dynamic/MotionLoader";
 
 const Hero = () => {
   const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.95] };
@@ -31,13 +31,17 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto w-full">
           <div className="flex flex-col relative">
             {/* --- LINGKARAN ABSOLUTE (DI ATAS KATA STACK) --- */}
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 1.5, duration: 1 }}
+            <MotionLoader
+              as="div"
+              motionProps={{
+                initial: { scale: 0, opacity: 0 },
+                animate: { scale: 1, opacity: 1 },
+                transition: { delay: 1.5, duration: 1 },
+              }}
               className="absolute top-[-40px] right-[-7%] md:right-[24%] lg:right-[23%] z-20">
-              <motion.div
-                animate={rotateAnimation}
+              <MotionLoader
+                as="div"
+                motionProps={{ animate: rotateAnimation }}
                 className="relative flex items-center justify-center w-20 h-20 md:w-28 md:h-28">
                 <div className="absolute inset-0 bg-[#CCFF00] rounded-full shadow-xl" />
 
@@ -61,8 +65,8 @@ const Hero = () => {
                 <div className="absolute text-black text-2xl md:text-3xl font-black">
                   ✦
                 </div>
-              </motion.div>
-            </motion.div>
+              </MotionLoader>
+            </MotionLoader>
 
             {/* ROW 1 */}
             <div className="overflow-hidden">

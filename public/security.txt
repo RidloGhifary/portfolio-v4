@@ -1,0 +1,4 @@
+Contact: mailto:security@ridloghfry.net
+Encryption: https://v2.ridloghfry.web.id/pgp.txt
+Acknowledgements: https://v2.ridloghfry.web.id/security
+Policy: https://v2.ridloghfry.web.id/security/policy

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "../../components/cards/ProjectCard";
 import { projects } from "../../data/projects";
@@ -7,19 +7,19 @@ const Projects = () => {
   const [filter, setFilter] = useState("all");
   const [showAll, setShowAll] = useState(false);
 
-  // Filter logika: Jika "all" tampilkan semua, jika tidak sesuaikan kategori
-  let filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((p) => p.filterCategory === filter);
+  // Compute filtered and displayed projects with useMemo to avoid recomputation
+  const filteredProjects = React.useMemo(() => {
+    const list =
+      filter === "all"
+        ? projects
+        : projects.filter((p) => p.filterCategory === filter);
+    // Return a new sorted array (avoid mutating original)
+    return [...list].sort((a, b) => a.id - b.id);
+  }, [filter]);
 
-  // Urutkan dari ID terbesar ke terkecil
-  filteredProjects = filteredProjects.sort((a, b) => a.id - b.id);
-
-  // Batasi ke 4 card jika showAll false
-  const displayedProjects = showAll
-    ? filteredProjects
-    : filteredProjects.slice(0, 4);
+  const displayedProjects = React.useMemo(() => {
+    return showAll ? filteredProjects : filteredProjects.slice(0, 4);
+  }, [filteredProjects, showAll]);
 
   const categories = [
     { id: "all", label: "All Works" },
@@ -53,8 +53,7 @@ const Projects = () => {
       style={{
         contentVisibility: "auto",
         containIntrinsicSize: "0 800px",
-      }}
-    >
+      }}>
       <div className="px-6 md:px-12 lg:px-24">
         <div className="flex items-baseline gap-4 md:gap-6 mb-8 md:mb-12">
           <div className="flex-1 h-px bg-border-primary"></div>
@@ -71,8 +70,7 @@ const Projects = () => {
               whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl pr-2 font-black uppercase leading-[0.85] tracking-tighter italic text-text-primary"
-            >
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl pr-2 font-black uppercase leading-[0.85] tracking-tighter italic text-text-primary">
               Selected <br /> Works
             </motion.h2>
           </div>
@@ -81,8 +79,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="w-full max-w-md md:max-w-70 text-left md:text-right font-medium text-sm leading-relaxed text-text-secondary"
-            >
+              className="w-full max-w-md md:max-w-70 text-left md:text-right font-medium text-sm leading-relaxed text-text-secondary">
               A collection of self-initiated projects built around intelligent
               systems and refined interfaces.
             </motion.p>
@@ -97,8 +94,7 @@ const Projects = () => {
               onClick={() => handleFilterChange(cat.id)}
               className={`relative font-mono text-[10px] uppercase tracking-[0.3em] pb-4 transition-colors duration-300 ${
                 filter === cat.id ? "text-text-primary" : "text-text-muted"
-              }`}
-            >
+              }`}>
               {cat.label}
               {filter === cat.id && (
                 <motion.div
@@ -113,8 +109,7 @@ const Projects = () => {
         {/* Asymmetric Grid */}
         <motion.div
           layout // Menghaluskan perpindahan saat filter berubah
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 md:gap-y-10"
-        >
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 md:gap-y-10">
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project, index) => (
               <motion.div
@@ -124,8 +119,7 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5 }}
-                className={`${index % 2 !== 0 ? "md:mt-32" : ""}`}
-              >
+                className={`${index % 2 !== 0 ? "md:mt-32" : ""}`}>
                 <ProjectCard project={project} index={index} />
               </motion.div>
             ))}
@@ -138,8 +132,7 @@ const Projects = () => {
             <motion.button
               onClick={() => setShowAll(!showAll)}
               whileHover={{ scale: 1.05 }}
-              className="border-b border-text-primary pb-2 font-mono text-[10px] uppercase tracking-[0.4em] hover:text-text-muted transition-colors"
-            >
+              className="border-b border-text-primary pb-2 font-mono text-[10px] uppercase tracking-[0.4em] hover:text-text-muted transition-colors">
               {showAll ? "Show Less" : "See All Archives"}
             </motion.button>
           </div>

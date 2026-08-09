@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import MotionLoader from "../dynamic/MotionLoader";
 import { useLocation, useNavigate } from "react-router-dom";
 import "swiper/css";
 
@@ -51,12 +51,12 @@ const Footer = () => {
                     "Contact",
                   ].map((item) => (
                     <li key={item} className="overflow-hidden">
-                      <a
-                        href={`#${item.toLowerCase()}`}
+                      <MotionLoader
+                        as="a"
                         onClick={(e) => handleFooterNav(e, item.toLowerCase())}
                         className="block text-1xl md:text-2xl font-black uppercase tracking-tight hover:translate-x-4 transition-all duration-300">
                         {item}
-                      </a>
+                      </MotionLoader>
                     </li>
                   ))}
                 </ul>

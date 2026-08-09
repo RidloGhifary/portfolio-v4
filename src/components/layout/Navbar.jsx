@@ -1,4 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
+import AnimatePresenceLoader from "../dynamic/AnimatePresenceLoader";
+import MotionLoader from "../dynamic/MotionLoader";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -71,16 +72,19 @@ const Navbar = ({ onNavClick }) => {
         {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link, index) => (
-            <motion.button
+            <MotionLoader
               key={link.name}
+              as="button"
+              motionProps={{
+                initial: { opacity: 0, y: -10 },
+                animate: { opacity: 1, y: 0 },
+                transition: { delay: index * 0.1 },
+              }}
               onClick={(e) => handleLinkClick(e, link.id)}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
               className="relative font-mono text-[10px] cursor-pointer uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors group text-left">
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all duration-300 group-hover:w-full" />
-            </motion.button>
+            </MotionLoader>
           ))}
 
           {/* DIVIDER & TOGGLE GROUP */}
@@ -126,7 +130,7 @@ const Navbar = ({ onNavClick }) => {
       </div>
 
       {/* MOBILE OVERLAY */}
-      <AnimatePresence>
+      <AnimatePresenceLoader>
         {isOpen && (
           <motion.div
             id="mobile-menu"
@@ -155,7 +159,7 @@ const Navbar = ({ onNavClick }) => {
             </button>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresenceLoader>
     </nav>
   );
 };

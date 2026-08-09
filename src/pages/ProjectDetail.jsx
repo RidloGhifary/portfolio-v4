@@ -3,6 +3,8 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { projects } from "../data/projects";
 import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
+import SEO from "../components/SEO";
+import StructuredData from "../components/Schema";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -35,6 +37,10 @@ const ProjectDetail = () => {
 
   if (!project) return <Navigate to="/" replace />;
 
+  const absoluteImage = project.image
+    ? `https://v2.ridloghfry.web.id${project.image}`
+    : `https://v2.ridloghfry.web.id/og-image.png`;
+
   const reveal = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -56,8 +62,17 @@ const ProjectDetail = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full px-4 sm:px-8 md:px-12 lg:px-24 min-h-screen text-text-primary font-sans selection:bg-accent selection:text-brand-bg overflow-x-hidden bg-brand-bg"
-    >
+      className="w-full px-4 sm:px-8 md:px-12 lg:px-24 min-h-screen text-text-primary font-sans selection:bg-accent selection:text-brand-bg overflow-x-hidden bg-brand-bg">
+      <SEO
+        title={project.title}
+        description={project.description}
+        image={absoluteImage}
+        url={`https://v2.ridloghfry.web.id/project/${project.slug}`}
+        keywords={project.tech.join(", ")}
+        type="article"
+      />
+
+      <StructuredData projects={[project]} />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-text-primary origin-left z-50"
         style={{ scaleX }}
@@ -71,8 +86,7 @@ const ProjectDetail = () => {
               e.preventDefault();
               handleNavClick("projects");
             }}
-            className="group relative flex items-center gap-4 py-2 overflow-hidden"
-          >
+            className="group relative flex items-center gap-4 py-2 overflow-hidden">
             {/* Icon Container */}
             <div className="relative w-5 h-5 flex items-center justify-center">
               <ArrowLeft
@@ -107,12 +121,10 @@ const ProjectDetail = () => {
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="max-w-450 mx-auto"
-          >
+            className="max-w-450 mx-auto">
             <motion.div
               variants={reveal}
-              className="flex flex-row justify-between items-end border-b-2 sm:border-b-4 border-text-primary pb-4 sm:pb-6 mb-6"
-            >
+              className="flex flex-row justify-between items-end border-b-2 sm:border-b-4 border-text-primary pb-4 sm:pb-6 mb-6">
               <div className="flex items-center gap-2 sm:gap-3">
                 <span className="w-2 h-2 sm:w-3 sm:h-3 bg-text-primary"></span>
                 <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold">
@@ -126,22 +138,19 @@ const ProjectDetail = () => {
 
             <motion.h1
               variants={reveal}
-              className="text-[14vw] sm:text-[11vw] leading-[0.85] sm:leading-[0.8] font-black uppercase tracking-tighter text-text-primary mb-10 break-words"
-            >
+              className="text-[14vw] sm:text-[11vw] leading-[0.85] sm:leading-[0.8] font-black uppercase tracking-tighter text-text-primary mb-10 break-words">
               {project.title}
             </motion.h1>
 
             <motion.div
               variants={reveal}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-            >
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               {project.links?.live && (
                 <a
                   href={project.links.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-text-primary text-brand-bg font-bold text-[10px] sm:text-xs uppercase tracking-[0.25em] hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors flex items-center justify-center gap-3"
-                >
+                  className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-text-primary text-brand-bg font-bold text-[10px] sm:text-xs uppercase tracking-[0.25em] hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors flex items-center justify-center gap-3">
                   Live View <ArrowUpRight size={16} />
                 </a>
               )}
@@ -150,8 +159,7 @@ const ProjectDetail = () => {
                   href={project.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 border-2 border-text-primary text-text-primary font-bold text-[10px] sm:text-xs uppercase tracking-[0.25em] hover:bg-text-primary hover:text-brand-bg transition-colors flex items-center justify-center gap-3"
-                >
+                  className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 border-2 border-text-primary text-text-primary font-bold text-[10px] sm:text-xs uppercase tracking-[0.25em] hover:bg-text-primary hover:text-brand-bg transition-colors flex items-center justify-center gap-3">
                   Source <Github size={16} />
                 </a>
               )}
@@ -162,8 +170,7 @@ const ProjectDetail = () => {
         <section className="w-full my-10 overflow-hidden">
           <motion.div
             style={{ y: yParallax }}
-            className="w-full h-full bg-brand-tertiary relative"
-          >
+            className="w-full h-full bg-brand-tertiary relative">
             <img
               src={project.image}
               alt={project.title}
@@ -188,27 +195,23 @@ const ProjectDetail = () => {
                 initial="hidden"
                 whileInView="visible"
                 variants={stagger}
-                viewport={{ once: true }}
-              >
+                viewport={{ once: true }}>
                 <motion.div
                   variants={reveal}
-                  className="mb-10 sm:mb-16 border-l-4 border-text-primary pl-4 sm:pl-6"
-                >
+                  className="mb-10 sm:mb-16 border-l-4 border-text-primary pl-4 sm:pl-6">
                   <span className={labelStyle}>01 // Client</span>
                   <p className={giantDataStyle}>{project.client}</p>
                 </motion.div>
 
                 <motion.div
                   variants={reveal}
-                  className="border-l-4 border-border-primary pl-4 sm:pl-6 hover:border-text-primary transition-colors duration-500"
-                >
+                  className="border-l-4 border-border-primary pl-4 sm:pl-6 hover:border-text-primary transition-colors duration-500">
                   <span className={labelStyle}>02 // Stack</span>
                   <ul className="flex flex-col gap-1 sm:gap-2">
                     {project.tech.map((t, i) => (
                       <li
                         key={i}
-                        className={`${giantDataStyle} text-text-muted hover:text-text-primary transition-colors`}
-                      >
+                        className={`${giantDataStyle} text-text-muted hover:text-text-primary transition-colors`}>
                         {t}
                       </li>
                     ))}
@@ -222,8 +225,7 @@ const ProjectDetail = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                viewport={{ once: true }}
-              >
+                viewport={{ once: true }}>
                 <h3 className="text-3xl sm:text-4xl md:text-6xl font-serif italic text-text-primary mb-8 sm:mb-12 leading-tight">
                   "Redefining digital interaction through precision and
                   clarity."
@@ -250,8 +252,7 @@ const ProjectDetail = () => {
           <Link
             to={`/project/${nextProject.slug}`}
             aria-label={`Next case study: ${nextProject.title}`}
-            className="block group relative overflow-hidden transition-colors duration-500"
-          >
+            className="block group relative overflow-hidden transition-colors duration-500">
             {/* Content Container */}
             <div className="px-6 md:px-12 py-20 sm:py-32 md:py-40 flex flex-col relative z-10">
               {/* Label Atas */}

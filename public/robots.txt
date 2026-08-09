@@ -1,0 +1,9 @@
+User-agent: *
+Disallow:
+
+# Crawl rate & sitemap
+Crawl-delay: 1
+Sitemap: https://v2.ridloghfry.web.id/sitemap.xml
+
+# Recommended: block staging or private APIs
+# Disallow: /api/

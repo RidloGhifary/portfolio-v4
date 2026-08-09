@@ -4,6 +4,10 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ResumePage from "./pages/ResumePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FontLoader from "./components/FontLoader";
 import { ThemeProvider } from "./context/ThemeContext"; // Import ThemeProvider
@@ -69,6 +73,10 @@ function AppContent() {
             }
           />
           <Route path="/project/:slug" element={<ProjectDetail />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/resume" element={<ResumePage />} />
         </Routes>
       </main>
 

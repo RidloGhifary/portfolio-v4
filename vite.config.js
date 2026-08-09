@@ -9,9 +9,14 @@ export default defineConfig({
     // Code splitting untuk optimasi
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Pisahkan vendor libraries
-          vendor: ["react", "react-dom", "react-router-dom"],
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("framer-motion")) return "vendor-framer-motion";
+            if (id.includes("lucide-react")) return "vendor-icons";
+            if (id.includes("swiper")) return "vendor-swiper";
+            if (id.includes("react-helmet-async")) return "vendor-helmet";
+            if (id.includes("node_modules")) return "vendor";
+          }
         },
         // Naming convention yang lebih baik
         chunkFileNames: "assets/js/[name]-[hash].js",
