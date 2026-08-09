@@ -1,5 +1,6 @@
 import AnimatePresenceLoader from "../dynamic/AnimatePresenceLoader";
 import MotionLoader from "../dynamic/MotionLoader";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

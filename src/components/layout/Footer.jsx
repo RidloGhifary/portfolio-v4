@@ -1,4 +1,5 @@
 import MotionLoader from "../dynamic/MotionLoader";
+import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import "swiper/css";
 
