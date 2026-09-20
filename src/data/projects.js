@@ -1,46 +1,46 @@
 export const projects = [
   {
-    id: "03",
-    title: "View API",
-    category: "SELF PROJECT",
-    filterCategory: "npm",
-    image: "/projects/project-view-api.png",
+    id: "01",
+    title: "DRI - Corporate Website",
+    category: "DEPLOYMENT",
+    filterCategory: "web",
+    image: "/projects/project-dri.png",
     description:
-      "A local mock server with a live editor—no backend, no redeploy, no save button. Build frontends without the wait.",
-    tech: ["Express", "Node.js", "Chokidar", "NPM"],
-    client: "Self Project",
+      "I was responsible for deploying this website on a Linux server using Docker, Jenkins, and GitHub CI/CD to ensure automated builds, reliable containerized delivery, and smooth production updates.",
+    tech: ["Docker", "Jenkins", "CI/CD"],
+    client: "PT. Daya Rekadigital Indonesia",
     year: 2026,
     challenge:
-      "Creating a local mock server with a live editor that allows frontend development without the need for backend setup, redeployment, or manual saving, while ensuring real-time updates and seamless integration with existing workflows.",
+      "Deploying a corporate website to a Linux production environment while ensuring automated builds, containerized consistency, and reliable release workflows through Docker, Jenkins, and GitHub CI/CD without disrupting site availability.",
     featured: false,
-    slug: "view-api",
+    slug: "dri-website",
     links: {
-      live: "https://ridloghifary.github.io/view-api/",
-      github: "https://github.com/RidloGhifary/view-api",
-    },
-  },
-  {
-    id: "02",
-    title: "NikahKu - Wedding Service",
-    category: "FREELANCE",
-    filterCategory: "fr",
-    image: "/projects/project-nikahku.png",
-    description:
-      "NikahKu is a wedding service website that provides comprehensive information and resources for couples planning their wedding, including vendor listings, budgeting tools, and planning checklists to help streamline the wedding planning process.",
-    tech: ["Next.JS", "Tailwind CSS", "Docker"],
-    client: "Freelance",
-    year: 2026,
-    challenge:
-      "Developing a user-friendly wedding service website that offers comprehensive information and resources for couples, including vendor listings, budgeting tools, and planning checklists, while ensuring seamless navigation and an engaging user experience.",
-    featured: false,
-    slug: "nikahku",
-    links: {
-      live: "https://nikahku.ridlolabs.net/",
+      live: "https://dri.co.id/",
       github: "-",
     },
   },
   {
-    id: "01",
+    id: "02",
+    title: "Betty - POS",
+    category: "Full-Stack Development",
+    filterCategory: "web",
+    image: "/projects/project-betty.png",
+    description:
+      "I built both the frontend and backend for this POS system, with a strong focus on backend architecture and performance. The platform includes around 50 API endpoints designed to stay under one second response time, while also managing CI/CD, deployment, and build monitoring for the server and its services.",
+    tech: ["Next.JS", "Express", "MySQL", "Redis", "Docker", "Jenkins"],
+    client: "PT. Daya Rekadigital Indonesia",
+    year: 2025,
+    challenge:
+      "The main challenge was building a complex mathematical calculation engine for detailed reports and POS transaction logic, including pricing, discounts, totals, taxes, and itemized summaries, while keeping the system accurate, efficient, and reliable for day-to-day operations.",
+    featured: true,
+    slug: "betty-pos",
+    links: {
+      live: "https://betty.id/",
+      github: "-",
+    },
+  },
+  {
+    id: "03",
     title: "SmartPoleIN - Smart City Solution",
     category: "FREELANCE",
     filterCategory: "fr",
@@ -59,28 +59,9 @@ export const projects = [
       github: "-",
     },
   },
+
   {
     id: "04",
-    title: "Betty - POS",
-    category: "INFORMATION RETRIEVAL",
-    filterCategory: "web", // Kategori besar untuk tab filter
-    image: "/projects/project-betty.png",
-    description:
-      "Betty is a Point of Sale (POS) system designed for FNB, service, retail businesses, featuring real-time data processing and advanced report capabilities to efficiently manage large volumes of transactions and product information.",
-    tech: ["Next.JS", "Express", "MySQL"],
-    client: "Full-Stack Project",
-    year: 2025,
-    challenge:
-      "Designing an efficient high traffic POS system with real-time data processing and robust search capabilities to handle large volumes of transactions and product information.",
-    featured: true,
-    slug: "betty-pos",
-    links: {
-      live: "https://betty.id/",
-      github: "-",
-    },
-  },
-  {
-    id: "05",
     title: "PinoteJS",
     category: "SELF PROJECT",
     filterCategory: "npm",
@@ -100,7 +81,47 @@ export const projects = [
     },
   },
   {
+    id: "05",
+    title: "View API",
+    category: "SELF PROJECT",
+    filterCategory: "npm",
+    image: "/projects/project-view-api.png",
+    description:
+      "A local mock server with a live editor—no backend, no redeploy, no save button. Build frontends without the wait.",
+    tech: ["Express", "Node.js", "Chokidar", "NPM"],
+    client: "Self Project",
+    year: 2026,
+    challenge:
+      "Creating a local mock server with a live editor that allows frontend development without the need for backend setup, redeployment, or manual saving, while ensuring real-time updates and seamless integration with existing workflows.",
+    featured: false,
+    slug: "view-api",
+    links: {
+      live: "https://ridloghifary.github.io/view-api/",
+      github: "https://github.com/RidloGhifary/view-api",
+    },
+  },
+  {
     id: "06",
+    title: "NikahKu - Wedding Service",
+    category: "FREELANCE",
+    filterCategory: "fr",
+    image: "/projects/project-nikahku.png",
+    description:
+      "NikahKu is a wedding service website that provides comprehensive information and resources for couples planning their wedding, including vendor listings, budgeting tools, and planning checklists to help streamline the wedding planning process.",
+    tech: ["Next.JS", "Tailwind CSS", "Docker"],
+    client: "Freelance",
+    year: 2026,
+    challenge:
+      "Developing a user-friendly wedding service website that offers comprehensive information and resources for couples, including vendor listings, budgeting tools, and planning checklists, while ensuring seamless navigation and an engaging user experience.",
+    featured: false,
+    slug: "nikahku",
+    links: {
+      live: "https://nikahku.ridlolabs.net/",
+      github: "-",
+    },
+  },
+  {
+    id: "07",
     title: "Tree Structure Generator",
     category: "SELF PROJECT",
     filterCategory: "ext",
@@ -120,7 +141,7 @@ export const projects = [
     },
   },
   {
-    id: "07",
+    id: "08",
     title: "How Many Lines of Codes",
     category: "SELF PROJECT",
     filterCategory: "ext",

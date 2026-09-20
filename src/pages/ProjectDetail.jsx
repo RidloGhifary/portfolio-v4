@@ -196,18 +196,18 @@ const ProjectDetail = () => {
                 whileInView="visible"
                 variants={stagger}
                 viewport={{ once: true }}>
-                <motion.div
+                {/* <motion.div
                   variants={reveal}
                   className="mb-10 sm:mb-16 border-l-4 border-text-primary pl-4 sm:pl-6">
                   <span className={labelStyle}>01 // Client</span>
                   <p className={giantDataStyle}>{project.client}</p>
-                </motion.div>
+                </motion.div> */}
 
                 <motion.div
                   variants={reveal}
                   className="border-l-4 border-border-primary pl-4 sm:pl-6 hover:border-text-primary transition-colors duration-500">
                   <span className={labelStyle}>02 // Stack</span>
-                  <ul className="flex flex-col gap-1 sm:gap-2">
+                  <ul className="flex flex-col gap-4 sm:gap-2">
                     {project.tech.map((t, i) => (
                       <li
                         key={i}
@@ -226,10 +226,10 @@ const ProjectDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true }}>
-                <h3 className="text-3xl sm:text-4xl md:text-6xl font-serif italic text-text-primary mb-8 sm:mb-12 leading-tight">
+                {/* <h3 className="text-3xl sm:text-4xl md:text-6xl font-serif italic text-text-primary mb-8 sm:mb-12 leading-tight">
                   "Redefining digital interaction through precision and
                   clarity."
-                </h3>
+                </h3> */}
                 <p className="text-lg sm:text-xl md:text-2xl text-text-secondary leading-relaxed font-light mb-10 sm:mb-16">
                   {project.description}
                 </p>

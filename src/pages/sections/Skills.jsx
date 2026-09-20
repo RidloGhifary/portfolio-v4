@@ -31,7 +31,7 @@ const Skills = () => {
             <span className="hidden md:block font-mono text-[10px] text-text-secondary tracking-widest">
               CAPACITY: 100%
             </span>
-            <div className="flex-1 h-[1px] bg-border-primary"></div>
+            <div className="flex-1 h-px bg-border-primary"></div>
             <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.25em] text-text-secondary whitespace-nowrap">
               System Architecture — (04)
             </span>
@@ -103,7 +103,7 @@ const Skills = () => {
           </div>
 
           {/* RIGHT: DETAIL DISPLAY */}
-          <div className="lg:col-span-7 bg-brand-tertiary p-8 md:p-16 relative flex flex-col justify-center min-h-[450px] md:min-h-[550px]">
+          <div className="lg:col-span-7 bg-brand-tertiary p-8 md:p-16 relative flex flex-col justify-center min-h-112.5 md:min-h-137.5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab.id}
@@ -113,7 +113,7 @@ const Skills = () => {
                 transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                 className="w-full">
                 <div className="flex items-center gap-4 mb-12 md:mb-16">
-                  <div className="h-[1px] w-8 md:w-12 bg-text-primary" />
+                  <div className="h-px w-8 md:w-12 bg-text-primary" />
                   <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-bold text-text-secondary">
                     {activeTab.category}
                   </span>

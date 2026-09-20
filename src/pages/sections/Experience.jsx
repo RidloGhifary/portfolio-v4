@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Minus } from "lucide-react";
 import { experiences } from "../../data/experiences";
+import { Link } from "react-router-dom";
 
 const Experience = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -32,6 +33,7 @@ const Experience = () => {
           </span>
           <div className="flex-1 h-[1px] bg-border-primary"></div>
         </div>
+
         {/* HEADER SECTION */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-border-primary pb-10 md:pb-16">
           {/* Sisi Kiri: Main Typography */}
@@ -61,11 +63,11 @@ const Experience = () => {
             {/* Penanda Tahun bergaya badge */}
             <div className="bg-brand-tertiary md:bg-transparent px-3 py-1 md:p-0 w-fit">
               <p className="font-mono text-[10px] md:text-xs text-text-secondary font-bold uppercase tracking-widest">
-                EST. 2025 — PRESENT
+                EST. 2024 — PRESENT
               </p>
             </div>
 
-            <p className="font-mono text-[10px] md:text-xs md:text-right text-text-muted uppercase tracking-widest leading-relaxed max-w-[180px] md:max-w-[220px]">
+            <p className="font-mono text-[10px] md:text-xs md:text-right text-text-muted uppercase tracking-widest leading-relaxed max-w-45 md:max-w-55">
               Building Digital Products <br className="hidden md:block" /> with
               Precision.
             </p>
@@ -110,7 +112,7 @@ const Experience = () => {
                     <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-1 group-hover:translate-x-2 transition-transform duration-500 ease-out">
                       {exp.company}
                     </h3>
-                    <p className="text-2xl font-serif italic text-text-secondary transition-colors duration-300 group-hover:translate-x-2 delay-75">
+                    <p className="text-2xl font-serif italic text-text-secondary">
                       {exp.role}
                     </p>
                   </div>
@@ -123,12 +125,17 @@ const Experience = () => {
                 {/* KOLOM KANAN: Tags & Action (Span 3) */}
                 <div className="lg:col-span-3 flex flex-col justify-between items-start lg:items-end gap-8">
                   {/* Action Button */}
-                  <div className="w-12 h-12 rounded-full border border-border-primary flex items-center justify-center group-hover:bg-text-primary group-hover:border-text-primary transition-all duration-300">
+                  <Link
+                    to={exp.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full border border-border-primary flex items-center justify-center group-hover:bg-text-primary group-hover:border-text-primary transition-all duration-300"
+                    aria-label={`Visit ${exp.company} website`}>
                     <ArrowUpRight
                       size={20}
                       className="text-text-secondary group-hover:text-brand-bg transition-colors duration-300"
                     />
-                  </div>
+                  </Link>
 
                   {/* Skills Tags (Aligned Right on Desktop) */}
                   <div className="flex flex-wrap lg:justify-end gap-2">

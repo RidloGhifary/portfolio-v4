@@ -149,7 +149,9 @@ const About = () => {
                   <span className="text-text-primary font-semibold">
                     Purwadhika Digital Technology School
                   </span>
-                  . With a passion for crafting seamless digital experiences.
+                  . With a passion about creating efficient, scalable, and
+                  maintainable solutions that drive business success and enhance
+                  user experiences.
                 </p>
               </div>
 
@@ -164,7 +166,11 @@ const About = () => {
                   </span>{" "}
                   and{" "}
                   <span className="text-text-primary font-bold">
-                    Tech Writing
+                    Tech Writing,{" "}
+                  </span>
+                  but focusing on{" "}
+                  <span className="text-text-primary font-bold">
+                    Backend development, System architecture.
                   </span>
                 </p>
               </div>
@@ -174,8 +180,8 @@ const About = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 border-b border-border-primary lg:flex-1">
               {[
                 { label: "Specialization", val: "Fullstack" },
-                { label: "Exp", val: ">1 Years" },
-                { label: "Location", val: "Surakarta, ID" },
+                { label: "Exp", val: "±2 Years" },
+                { label: "Location", val: "Jombang, ID" },
               ].map((item, i) => (
                 <div
                   key={i}
