@@ -18,7 +18,7 @@ const Projects = () => {
   }, [filter]);
 
   const displayedProjects = React.useMemo(() => {
-    return showAll ? filteredProjects : filteredProjects.slice(0, 4);
+    return showAll ? filteredProjects : filteredProjects.slice(0, 6);
   }, [filteredProjects, showAll]);
 
   const categories = [
@@ -126,8 +126,8 @@ const Projects = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Bottom CTA - Tampil hanya jika ada project lebih dari 4 */}
-        {filteredProjects.length > 4 && (
+        {/* Bottom CTA - Tampil hanya jika ada project lebih dari 6 */}
+        {filteredProjects.length > 6 && (
           <div className="mt-32 flex justify-center">
             <motion.button
               onClick={() => setShowAll(!showAll)}

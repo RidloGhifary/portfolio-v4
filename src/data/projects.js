@@ -21,6 +21,26 @@ export const projects = [
   },
   {
     id: "02",
+    title: "KeepUp - Uptime Monitoring",
+    category: "Full-Stack Development",
+    filterCategory: "web",
+    image: "/projects/project-keepup.png",
+    description:
+      "A real-time uptime and infrastructure monitoring platform built to track website availability, API response times, and SSL certificate expiration. I engineered both the dashboard interface and the distributed health-check engine, featuring automated alerting, incident timelines, and public status pages.",
+    tech: ["Rust", "Javascript", "Docker", "SQLite"],
+    client: "Personal Project",
+    year: 2025,
+    challenge:
+      "Designing a non-blocking, high-concurrency worker queue capable of executing thousands of scheduled HTTP/TCP health checks per minute without false positives, while delivering instant webhook, email, and Slack alerts the moment downtime occurs.",
+    featured: true,
+    slug: "keepup-uptime-monitoring",
+    links: {
+      live: "https://ridloghifary.github.io/keepup",
+      github: "https://github.com/RidloGhifary/keepup",
+    },
+  },
+  {
+    id: "03",
     title: "Betty - POS",
     category: "Full-Stack Development",
     filterCategory: "web",
@@ -40,7 +60,7 @@ export const projects = [
     },
   },
   {
-    id: "03",
+    id: "04",
     title: "SmartPoleIN - Smart City Solution",
     category: "FREELANCE",
     filterCategory: "fr",
@@ -61,7 +81,7 @@ export const projects = [
   },
 
   {
-    id: "04",
+    id: "05",
     title: "PinoteJS",
     category: "SELF PROJECT",
     filterCategory: "npm",
@@ -81,7 +101,7 @@ export const projects = [
     },
   },
   {
-    id: "05",
+    id: "06",
     title: "View API",
     category: "SELF PROJECT",
     filterCategory: "npm",
@@ -101,7 +121,7 @@ export const projects = [
     },
   },
   {
-    id: "06",
+    id: "07",
     title: "NikahKu - Wedding Service",
     category: "FREELANCE",
     filterCategory: "fr",
@@ -121,7 +141,7 @@ export const projects = [
     },
   },
   {
-    id: "07",
+    id: "08",
     title: "Tree Structure Generator",
     category: "SELF PROJECT",
     filterCategory: "ext",
@@ -141,7 +161,7 @@ export const projects = [
     },
   },
   {
-    id: "08",
+    id: "09",
     title: "How Many Lines of Codes",
     category: "SELF PROJECT",
     filterCategory: "ext",
